@@ -1,0 +1,89 @@
+
+# example
+
+repeat
+fact := fact * x;
+if 0 < x then y := 2 end;
+read x
+until x = 0;
+write fact;
+read y;
+fact := fact - y
+
+
+# parser input
+
+repeat, REPEAT
+fact, IDENTIFIER
+:=, ASSIGN
+fact, IDENTIFIER
+*, MULT
+x, IDENTIFIER
+;, SEMICOLON
+if, IF
+0, NUMBER
+<, LESSTHAN
+x, IDENTIFIER
+then, THEN
+y, IDENTIFIER
+:=, ASSIGN
+2, NUMBER
+end, END
+;, SEMICOLON
+read, READ
+x, IDENTIFIER
+until, UNTIL
+x, IDENTIFIER
+=, EQUAL
+0, NUMBER
+;, SEMICOLON
+write, WRITE
+fact, IDENTIFIER
+;, SEMICOLON
+read, READ
+y, IDENTIFIER
+;, SEMICOLON
+fact, IDENTIFIER
+:=, ASSIGN
+fact, IDENTIFIER
+-, MINUS
+y, IDENTIFIER
+
+read,READ 
+xyz,IDENTIFIER
+;,SEMICOLON
+write,WRITE 
+x, IDENTIFIER 
+=,EQUAL
+5, NUMBER
++,PLUS
+4, NUMBER
+*,MULT
+3, NUMBER
++,PLUS
+(,OPENBRACKET 
+7,NUMBER
+/,DIV
+q,IDENTIFIER
+),CLOSEDBRACKET
++,PLUS
+y,IDENTIFIER
+;,SEMICOLON
+read,READ
+abc,IDENTIFIER
+
+
+
+if, IF
+0, NUMBER
+<, LESSTHAN
+x, IDENTIFIER
+then, THEN
+y, IDENTIFIER
+:=, ASSIGN
+2, NUMBER
+else,ELSE 
+S,IDENTIFIER
+:=,ASSIGN
+6,NUMBER
+end,END

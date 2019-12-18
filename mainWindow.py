@@ -1,5 +1,6 @@
+from myparser import Parser
+from mytoken import Token, availableTokens
 from tkinter import *
-from todo import *
 
 class MainWindow:
 
@@ -30,9 +31,24 @@ class MainWindow:
         inputtext = inputtext.strip().splitlines()
         while('' in inputtext):
             inputtext.remove('')
-        self.toDo(inputtext)
+        self.tokenslist = self.tokenize(inputtext)
+        parser = Parser(self.tokenslist)
+        self.statements_found = parser.parse()
+        for stmt in self.statements_found:
+            print(stmt)
 
-    toDo = to_do
+    def tokenize(self, inputlines):
+        tokenlist = list()
+        for line in inputlines:
+            #    xyz   ,        id
+            linelist = line.split(",")
+            #    [          xyz      ,       id]
+            newtoken = Token(linelist[0].replace(" ", ""), linelist[1].replace(" ", ""))
+            # {xyz,id}
+            # newtoken.value, newtoken.type
+            tokenlist.append(newtoken)
+            # tokenlist[0].value
+        return tokenlist
 
 
 mainwindow = MainWindow()
